@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Page Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Generator||FortiLock</title>
   </head>
   <body>
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
+    <header>
+      <nav class="nav">
+        <div class="nav__logo__container">
+          <img class="nav__logo" src="./image/logo-light.png" alt="nav logo" />
+        </div>
+      </nav>
+    </header>
+    <body>
+      <div class="hero">
+        <section class="title">
+          <h1>
+            Lock Down Your Security<br />
+            <span>Generate Powerful, Uncrackable Passwords in Seconds</span>
+          </h1>
+          <p>
+            FortiLock is your ultimate safeguard, effortlessly generating
+            strong, random passwords to elevate your digital security and keep
+            your accounts impenetrable
+          </p>
+        </section>
+        <section class="app">
+          <div class="app__container">
+            <div class="result"></div>
+            <div class="customise">
+              <h2>Customise your new password</h2>
+              <form class="requirements">
+                <div class="psw__length">
+                  <label>Length</label>
+                  <div class="psw__range">
+                    <input
+                      type="range"
+                      name="length"
+                      id="length"
+                      min="0"
+                      max="50"
+                      value="0"
+                      oninput="this.nextElementSibling.value = this.value"
+                    />
+                    <output>0</output>
+                  </div>
+                </div>
+                <div class="option">
+                  <label>A-Z</label>
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="uppercase"
+                    id="uppercase"
+                  />
+                </div>
+                <div class="option">
+                  <label>a-z</label>
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="lowercase"
+                    id="lowercase"
+                  />
+                </div>
+                <div class="option">
+                  <label>0-9</label>
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="number"
+                    id="number"
+                  />
+                </div>
+                <div class="option">
+                  <label>!@#^&*</label>
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="punctuation"
+                    id="punctuation"
+                  />
+                </div>
+              </form>
+            </div>
+            <button class="btn generate__btn">Generate</button>
+          </div>
+        </section>
+      </div>
+    </body>
+    <footer></footer>
+
     <script src="./script.js"></script>
   </body>
 </html>
