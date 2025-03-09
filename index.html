@@ -29,9 +29,17 @@
         </section>
         <section class="app">
           <div class="app__container">
-            <div class="result"></div>
+            <div class="result__container">
+              <p class="result"></p>
+              <div class="strength-bar__container">
+                <div class="strength-bar"></div>
+                <p id="demo"></p>
+              </div>
+            </div>
+
             <div class="customise">
               <h2>Customise your new password</h2>
+              <div class="strength"></div>
               <form class="requirements">
                 <div class="psw__length">
                   <label>Length</label>
@@ -40,53 +48,61 @@
                       type="range"
                       name="length"
                       id="length"
-                      min="0"
-                      max="50"
+                      min="8"
+                      max="20"
                       value="0"
                       oninput="this.nextElementSibling.value = this.value"
                     />
-                    <output>0</output>
+                    <output>8</output>
                   </div>
                 </div>
                 <div class="option">
                   <label>A-Z</label>
                   <input
-                    class="checkbox"
+                    class="checkbox checkbox__uppercase"
                     type="checkbox"
                     name="uppercase"
                     id="uppercase"
+                    checked
                   />
                 </div>
                 <div class="option">
                   <label>a-z</label>
                   <input
-                    class="checkbox"
+                    class="checkbox__lowercase checkbox"
                     type="checkbox"
                     name="lowercase"
                     id="lowercase"
+                    checked
                   />
                 </div>
                 <div class="option">
                   <label>0-9</label>
                   <input
-                    class="checkbox"
+                    class="checkbox__number checkbox"
                     type="checkbox"
                     name="number"
                     id="number"
+                    checked
                   />
                 </div>
                 <div class="option">
                   <label>!@#^&*</label>
                   <input
-                    class="checkbox"
+                    class="checkbox__punctuation checkbox"
                     type="checkbox"
                     name="punctuation"
                     id="punctuation"
+                    checked
                   />
                 </div>
               </form>
             </div>
             <button class="btn generate__btn">Generate</button>
+            <div class="note">
+              * Value must be between 8 and 128. Use 14 characters or more to
+              generate a strong password.
+            </div>
           </div>
         </section>
       </div>
