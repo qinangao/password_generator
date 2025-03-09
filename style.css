@@ -72,18 +72,41 @@ header {
   border: 3px solid black;
   background-color: white;
   border-radius: 20px;
+  width: 30%;
 }
 .app__container {
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ;
 }
-.result {
-  width: 400px;
-  height: 30px;
+.strength-bar__container {
+  background-color: gainsboro;
+  height: 6px;
+  width: 99%;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  border-radius: 10px;
+}
+.strength-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--green);
+}
+.result__container {
+  width: 90%;
+  height: 40px;
   border: 2px solid black;
+  text-align: center;
+  color: var(--black);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  padding: 5px;
+}
+.result__error {
+  color: red;
 }
 input[type="range"] {
   overflow: hidden;
@@ -109,6 +132,13 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .checkbox {
   accent-color: var(--green);
+}
+.note {
+  padding: 5px 0 0 14px;
+  font-size: 13px;
+  border-top: 1px dashed black;
+  margin-top: 20px;
+  text-align: left;
 }
 .requirements {
   display: flex;
