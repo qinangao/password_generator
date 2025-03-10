@@ -110,7 +110,7 @@ header {
 }
 input[type="range"] {
   overflow: hidden;
-  width: 100px;
+  width: 150px;
   -webkit-appearance: none;
   background-color: var(--very-light-green);
 }
