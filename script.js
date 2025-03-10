@@ -38,41 +38,39 @@ const passwordGen = function () {
   }
 
   result.classList.remove("result__error");
-  for (let i = 0; i < length.value; i++) {
+
+  result.textContent = "";
+
+  for (let i = 0; i < parseInt(length.value); i++) {
     pswCharacter.push(randomChar(allowedChars));
   }
+
   password = pswCharacter.sort(() => Math.random() - 0.5).join("");
   result.innerHTML = password;
 
   //Check strength
   const strengthTester = function () {
-    var width = 0;
-    if (password.length < 10) {
-      width += 30;
-      strengthBar.style.width = width + "%";
+    let width = 0;
+    if (password.length <= 10) {
+      width = 30;
+
       strengthBar.style.backgroundColor = "red";
     }
-    console.log(width);
-    if (password.length > 10 && password.length < 13) {
-      width += 60;
-      strengthBar.style.width = width + "%";
+    if (password.length > 10 && password.length <= 14) {
+      width = 60;
+
       strengthBar.style.backgroundColor = "orange";
     }
-    if (password.length > 14) {
-      width += 100;
-      strengthBar.style.width = width + "%";
+    if (password.length >= 15) {
+      width = 100;
+
       strengthBar.style.backgroundColor = "var(--green)";
     }
+    strengthBar.style.width = width + "%";
   };
 
-  // if (password.length > 10 && password.length < 13) return "Good";
-  // if (password.length > 14) return "Strong";
   strengthTester();
 };
-//   if (strength <= 3) return "Weak";
-//   if (strength <= 3) return "Strong";
-//   if (strength <= 3) return "Strong";
-// };
 
 btnGeneratePsw.addEventListener("click", passwordGen);
 
