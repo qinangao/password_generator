@@ -7,16 +7,22 @@ const checkboxLowerCase = document.querySelector(".checkbox__lowercase");
 const checkboxNumber = document.querySelector(".checkbox__number");
 const checkboxPunctuation = document.querySelector(".checkbox__punctuation");
 const strengthBar = document.querySelector(".strength-bar");
+const historyList = document.querySelector(".histroy__list");
 
 //Function
-
+let historyPassword = [];
 const passwordGen = function () {
   const data = {
-    specials: "!@#$%^&*()_+{}:\"<>?|[];',./`~",
+    specials: "!@#$%^&*()_+{}:<>?|[];',./`~",
     lowercase: "abcdefghijklmnopqrstuvwxyz",
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     numbers: "0123456789",
   };
+  console.log(historyPassword);
+  if (historyPassword.length > 4) {
+    alert("sign up for more");
+    return;
+  }
   //Select ramdom character from a string
   function randomChar(str) {
     return str[Math.floor(Math.random() * str.length)];
@@ -46,8 +52,10 @@ const passwordGen = function () {
   }
 
   password = pswCharacter.sort(() => Math.random() - 0.5).join("");
-  result.innerHTML = password;
+  result.textContent = String(password);
 
+  // console.log(password);
+  // console.log(password.length);
   //Check strength
   const strengthTester = function () {
     let width = 0;
@@ -68,54 +76,21 @@ const passwordGen = function () {
     }
     strengthBar.style.width = width + "%";
   };
-
   strengthTester();
+
+  //display history password
+
+  historyPassword.push(password);
+
+  const displayHistory = function () {
+    historyList.innerHTML = "";
+    let html = historyPassword
+      .map((psw) => `<li>${psw}</li>`)
+      .reverse()
+      .join("");
+    historyList.insertAdjacentHTML("beforeend", html);
+  };
+  displayHistory();
 };
 
 btnGeneratePsw.addEventListener("click", passwordGen);
-
-//Check if a password is strong
-//length:8-10 waek
-//length: 11-13 good
-//length:>14 strong
-
-//Theory function
-// function passwordGen(
-//   length,
-//   minSpecials,
-//   minLowercase,
-//   minUppercase,
-//   minNumbers
-// ) {
-//   const requiredLength = minSpecials + minLowercase + minUppercase + minNumbers;
-//   let password = "";
-//   let requiredChars = [];
-
-//   if (length >= requiredLength) {
-//     for (let i = 0; i < minSpecials; i++)
-//       requiredChars.push(randomChar(data.specials));
-//     for (let i = 0; i < minLowercase; i++)
-//       requiredChars.push(randomChar(data.lowercase));
-//     for (let i = 0; i < minUppercase; i++)
-//       requiredChars.push(randomChar(data.uppercase));
-//     for (let i = 0; i < minNumbers; i++)
-//       requiredChars.push(randomChar(data.numbers));
-
-//     let allowedChars = "";
-//     if (minSpecials > 0) allowedChars += data.specials;
-//     if (minLowercase > 0) allowedChars += data.lowercase;
-//     if (minUppercase > 0) allowedChars += data.uppercase;
-//     if (minNumbers > 0) allowedChars += data.numbers;
-
-//     for (let i = 0; i < length - requiredLength; i++) {
-//       requiredChars.push(randomChar(allowedChars));
-//     }
-
-//     password = requiredChars.sort(() => Math.random() - 0.5).join("");
-//     return password;
-//   } else {
-//     return "Your length is invalid";
-//   }
-// }
-
-// console.log(passwordGen(8, 1, 0, 1, 1));
