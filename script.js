@@ -9,7 +9,10 @@ const checkboxPunctuation = document.querySelector(".checkbox__punctuation");
 const strengthBar = document.querySelector(".strength-bar");
 const historyList = document.querySelector(".histroy__list");
 
-//Function
+const registerModal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCancel = document.querySelector(".btn__cancel");
+//App Function
 let historyPassword = [];
 const passwordGen = function () {
   const data = {
@@ -18,11 +21,21 @@ const passwordGen = function () {
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     numbers: "0123456789",
   };
-  console.log(historyPassword);
+
+  //Free password condition
   if (historyPassword.length > 4) {
-    alert("sign up for more");
+    console.log(historyPassword.length);
+    result.textContent = "************";
+    registerModal.classList.remove("modal__hidden");
+    overlay.classList.remove("overlay__hidden");
     return;
   }
+
+  btnCancel.addEventListener("click", function () {
+    registerModal.classList.add("modal__hidden");
+    overlay.classList.add("overlay__hidden");
+  });
+
   //Select ramdom character from a string
   function randomChar(str) {
     return str[Math.floor(Math.random() * str.length)];
@@ -84,13 +97,21 @@ const passwordGen = function () {
 
   const displayHistory = function () {
     historyList.innerHTML = "";
+
     let html = historyPassword
       .map((psw) => `<li>${psw}</li>`)
       .reverse()
       .join("");
+
     historyList.insertAdjacentHTML("beforeend", html);
   };
   displayHistory();
 };
 
 btnGeneratePsw.addEventListener("click", passwordGen);
+
+//effect
+const btnShowHistory = document.querySelector(".collapsible");
+btnShowHistory.addEventListener("click", function () {
+  historyList.classList.toggle("histroy__active");
+});
