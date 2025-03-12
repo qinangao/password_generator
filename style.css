@@ -6,6 +6,8 @@
   --very-light-green: rgb(235, 237, 223);
   --greenish-yellow: #e1e587;
 }
+
+/* Gerenal Element */
 * {
   margin: 0;
   padding: 0;
@@ -48,10 +50,25 @@ header {
   background-color: var(--black);
   height: 100px;
 }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .nav__logo {
   height: 90px;
 }
-
+.header__nav {
+  display: flex;
+  color: white;
+  list-style: none;
+  gap: 30px;
+  margin-right: 80px;
+}
+.header__nav li:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
 .hero {
   background-color: var(--very-light-green);
 }
@@ -66,13 +83,66 @@ header {
 .title {
   width: 40%;
 }
-
+.underlined {
+  /*   background: red; */
+  position: relative;
+}
+.underline-clip:after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid var(--greenish-yellow);
+  /* Use a clip-path to hide and show the bits you want */
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+.underline-mask:after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid var(--green);
+  /* Use a conic gradient mask to hide and show the bits you want */
+  --spread: 140deg;
+  --start: 290deg;
+  mask: conic-gradient(
+    from var(--start),
+    white 0 var(--spread),
+    transparent var(--spread)
+  );
+}
+.underline-overflow {
+  display: inline-flex;
+  align-items: center;
+  /* A little extra padding and overflow hidden   */
+  overflow: hidden;
+  /* padding-bottom: clamp(1rem, 2vmin, 1rem); */
+}
+.underline-overflow:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 150%;
+  aspect-ratio: 3.5 / 1;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  border-radius: 50%;
+  border: 6px solid goldenrod;
+}
 /* APP */
 .app {
   border: 3px solid black;
   background-color: white;
   border-radius: 20px;
-  width: 30%;
+  width: 35%;
 }
 .app__container {
   padding: 30px;
@@ -176,6 +246,7 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--very-light-green);
   border-radius: 20px;
   cursor: pointer;
+  margin-top: 15px;
 }
 .history__title:hover {
   transform: scaleX(1.1);
@@ -251,4 +322,109 @@ input[type="range"]::-webkit-slider-thumb {
 .btn__cancel {
   background-color: var(--very-light-green);
   color: var(--green);
+}
+/* FOOTER */
+footer {
+  background-color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 80px 40px 80px;
+}
+.footer__nav {
+  list-style: none;
+  text-align: center;
+}
+.footer__nav li {
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.footer__nav li:hover {
+  color: white;
+  transform: scale(1.3);
+}
+.contact__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.contact__container p {
+  padding: 20px 0 20px 0;
+  font-size: 25px;
+}
+.contact__logo img {
+  width: 40px;
+  cursor: pointer;
+}
+.contact__logo img:hover {
+  transform: scale(1.3);
+}
+.copyright {
+  margin-left: 40px;
+}
+.copyright a {
+  text-decoration: none;
+  color: var(--very-light-green);
+}
+.nav__logo__container img {
+  width: 100%;
+}
+
+/* Medium screen */
+@media (max-width: 1180px) {
+  /* Header */
+  .hero {
+    padding: 60px;
+  }
+  .title {
+    width: 70%;
+  }
+  .app {
+    width: 80%;
+  }
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+  }
+  .footer__nav {
+    margin-top: 20px;
+  }
+  .contact__container,
+  .nav__logo__container {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 25px;
+  }
+  header {
+    height: 65px;
+  }
+  .nav__logo__container img {
+    width: 150px;
+    height: 60px;
+  }
+  .header__nav {
+    display: none;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 30px;
+  }
+  .app,
+  .title {
+    width: 100%;
+  }
+  .app {
+    margin-top: 50px;
+  }
+  input[type="range"] {
+    width: 120px;
+  }
+  .copyright {
+    margin: 0;
+  }
 }
