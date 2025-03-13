@@ -71,6 +71,9 @@ header {
 .open__btn {
   display: none;
 }
+.close__btn {
+  display: none;
+}
 .hero {
   background-color: var(--very-light-green);
 }
@@ -230,11 +233,14 @@ input[type="range"]::-webkit-slider-thumb {
   position: relative;
 }
 .histroy__list {
+  padding: 10px;
   border: 2px solid black;
   list-style: none;
   position: absolute;
   border-radius: 30px;
-  top: 40px;
+  top: 60px;
+
+  right: -13px;
   width: 100%;
   background-color: #e1e587;
   text-align: center;
@@ -404,6 +410,7 @@ footer {
   }
   .nav__logo__container {
     display: flex;
+    justify-content: space-between;
   }
   .nav {
     position: relative;
@@ -413,11 +420,10 @@ footer {
     height: 60px;
   }
   .header__nav {
-    padding: 20px;
+    padding: 15px;
     color: black;
     background-color: var(--greenish-yellow);
     border-radius: 20px;
-    flex-direction: column;
     position: absolute;
     left: 20%;
     top: 50%;
@@ -426,13 +432,23 @@ footer {
     text-align: center;
     display: none;
   }
-
+  .header__nav li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .open__btn,
+  .close__btn {
+    position: absolute;
+    width: 40px;
+    right: 5%;
+    top: 10%;
+    cursor: pointer;
+  }
   .open__btn {
     display: block;
-    position: absolute;
-    width: 60px;
-    right: 5%;
-    cursor: pointer;
+  }
+  .close__btn {
+    display: none;
   }
   .hero {
     flex-direction: column;
@@ -448,7 +464,17 @@ footer {
   input[type="range"] {
     width: 120px;
   }
+  .history__title {
+    width: 270px;
+    padding: 5px;
+  }
+  .histroy__list {
+    top: 55px;
+  }
   .copyright {
     margin: 0;
+  }
+  .modal {
+    width: 75%;
   }
 }
