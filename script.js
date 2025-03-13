@@ -115,3 +115,10 @@ const btnShowHistory = document.querySelector(".collapsible");
 btnShowHistory.addEventListener("click", function () {
   historyList.classList.toggle("histroy__active");
 });
+
+//collasable menu
+const btnMenu = document.querySelector(".open__btn");
+const navMenu = document.querySelector(".header__nav");
+btnMenu.addEventListener("click", function () {
+  navMenu.style.display = "block";
+});
