@@ -12,8 +12,14 @@ const historyList = document.querySelector(".histroy__list");
 const registerModal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCancel = document.querySelector(".btn__cancel");
+
+const btnShowHistory = document.querySelector(".collapsible");
+const btnMenuOpen = document.querySelector(".open__btn");
+const btnMenuClose = document.querySelector(".close__btn");
+const navMenu = document.querySelector(".header__nav");
 //App Function
 let historyPassword = [];
+
 const passwordGen = function () {
   const data = {
     specials: "!@#$%^&*()_+{}:<>?|[];',./`~",
@@ -102,7 +108,7 @@ const passwordGen = function () {
       .map((psw) => `<li>${psw}</li>`)
       .reverse()
       .join("");
-
+    console.log(historyPassword);
     historyList.insertAdjacentHTML("beforeend", html);
   };
   displayHistory();
@@ -110,15 +116,26 @@ const passwordGen = function () {
 
 btnGeneratePsw.addEventListener("click", passwordGen);
 
-//effect
-const btnShowHistory = document.querySelector(".collapsible");
+//show history
+
 btnShowHistory.addEventListener("click", function () {
+  if (historyPassword.length == 0) {
+    historyList.textContent =
+      'You don\'t have any passwords. CLICK "Generate" to get your strong passwords';
+  }
   historyList.classList.toggle("histroy__active");
 });
 
 //collasable menu
-const btnMenu = document.querySelector(".open__btn");
-const navMenu = document.querySelector(".header__nav");
-btnMenu.addEventListener("click", function () {
+
+btnMenuOpen.addEventListener("click", function () {
   navMenu.style.display = "block";
+  btnMenuOpen.style.display = "none";
+  btnMenuClose.style.display = "block";
+});
+
+btnMenuClose.addEventListener("click", function () {
+  navMenu.style.display = "none";
+  btnMenuOpen.style.display = "block";
+  btnMenuClose.style.display = "none";
 });
