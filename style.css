@@ -33,7 +33,7 @@ h2 {
   height: 35px;
   font-size: 18px;
   background-color: var(--green);
-  color: var(--very-light-green);
+  color: white;
   letter-spacing: 1px;
   font-family: "Fraunces", serif;
   border-radius: 10px;
@@ -171,7 +171,7 @@ header {
 }
 .result__container {
   width: 90%;
-  height: 40px;
+  min-height: 40px;
   border: 2px solid black;
   text-align: center;
   color: var(--black);
@@ -179,6 +179,7 @@ header {
   text-align: center;
   position: relative;
   padding: 5px;
+  word-wrap: break-word;
 }
 .result__error {
   color: red;
@@ -291,7 +292,7 @@ input[type="range"]::-webkit-slider-thumb {
   /* align-items: center; */
 }
 .register__form input {
-  height: 18px;
+  border: 1px solid black;
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -373,7 +374,7 @@ footer {
 }
 .copyright a {
   text-decoration: none;
-  color: var(--very-light-green);
+  color: black;
 }
 .footer__logo__container img {
   width: 100%;
