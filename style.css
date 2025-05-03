@@ -3,7 +3,7 @@
 :root {
   --green: #97b002;
   --black: rgb(11, 11, 11);
-  --very-light-green: rgb(235, 237, 223);
+  --very-light-green: #ebeddf;
   --greenish-yellow: #e1e587;
 }
 
@@ -180,21 +180,12 @@ header {
   padding: 5px;
   word-wrap: break-word;
 }
-.result__error {
-  color: red;
-}
+
 input[type="range"] {
   overflow: hidden;
   width: 150px;
   -webkit-appearance: none;
   background-color: var(--very-light-green);
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 10px;
-  -webkit-appearance: none;
-  color: #13bba4;
-  margin-top: -1px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
