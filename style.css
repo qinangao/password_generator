@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Lexend+Deca:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
-  --green: rgb(151, 176, 2);
+  --green: #97b002;
   --black: rgb(11, 11, 11);
   --very-light-green: rgb(235, 237, 223);
   --greenish-yellow: #e1e587;
@@ -74,15 +74,14 @@ header {
 .close__btn {
   display: none;
 }
-.hero {
-  background-color: var(--very-light-green);
-}
+
 /* HERO */
 .hero {
   padding: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: var(--very-light-green);
   /* height: 630px; */
 }
 .title {
@@ -156,7 +155,7 @@ header {
   align-items: center;
 }
 .strength-bar__container {
-  background-color: gainsboro;
+  background-color: #dcdcdc;
   height: 6px;
   width: 99%;
   position: absolute;
