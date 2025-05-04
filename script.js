@@ -108,7 +108,7 @@ const passwordGen = function () {
       .map((psw) => `<li>${psw}</li>`)
       .reverse()
       .join("");
-    console.log(historyPassword);
+
     historyList.insertAdjacentHTML("beforeend", html);
   };
   displayHistory();
