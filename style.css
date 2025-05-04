@@ -230,7 +230,6 @@ input[type="range"]::-webkit-slider-thumb {
   position: absolute;
   border-radius: 30px;
   top: 60px;
-
   right: -13px;
   width: 100%;
   background-color: #e1e587;
